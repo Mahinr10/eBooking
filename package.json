@@ -9,6 +9,7 @@
   "author": "Md. Mahinur Rashid",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mustache": "^4.1.0"
   }
 }
