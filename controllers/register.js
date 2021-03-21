@@ -8,6 +8,7 @@ router.get('/register', (req, res)=>{
 
 router.post('/register', (req, res)=>{
     const {login} = req.body;
+    console.log(req.body);
     if(login){
         res.redirect('/login');
     }

@@ -24,7 +24,9 @@ app.use('/', require('./controllers/login.js'));
 app.use('/', require('./controllers/index.js'));
 app.use('/', require('./controllers/register.js'));
 
-/// using routers   
+/// setting static
+
+app.use('/static', express.static('public'));
 
 
 

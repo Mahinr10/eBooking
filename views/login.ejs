@@ -1,25 +1,34 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+        <link rel = "stylesheet" href="static/css/bootstrap.min.css" >
     </head>
     <body>
-        <h1>
-            eBooking
-        </h1>
-        <h2>
-            The world is your home
-        </h2>
+        <div class="container">
+            <div class="jumbotron">
+                <h1>
+                    eBooking
+                </h1>
+                <p>
+                    The world is your home
+                </p>
+            </div>
 
-        <form method='POST' action='/login'>
-            <label for = "email">Email</label><br>
-            <input type ="text" tag="email" name="email"> <br><br>
-
-            <label for = "password">Password</label> <br>
-            <input type = "password" tag = "pass" name="pass" > <br><br> 
-            
-            <input type = "submit" name = "login" tag="login" value ="Login">
-            <input type = "submit" name = "register" tag = "register" value = "register">
-        </form>
+            <form method='POST' action='/login'>
+                <div class= "form-group">
+                    <div class = "col-sm-4">
+                        <label for = "email">Email</label>
+                        <input type ="text" class= "form-control" tag="email" name="email"> <br>
+                        
+                        <label for = "password">Password</label>
+                        <input type = "password" class= "form-control" tag = "pass" name="pass" > <br>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <button type = "submit" class="btn btn-primary" name = "login" tag="login" value="login">Login</button>
+                    <button type = "submit" class = "btn btn-success" name = "register" tag = "register" value = "register"> Register </button>
+                </div>
+            </form>
+        </div>
     </body>
 </html>
