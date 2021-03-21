@@ -8,7 +8,18 @@ router.get('/login', (req, res)=>{
 
 router.post('/login', (req, res)=>{
     console.log(req.body);
-    user_db.login_validation(req.body).then((user) => console.log(user));
+    const {register} = req.body;
+    if(register){
+        res.redirect('/register');
+    }
+    else{
+        user_info = undefined;
+        user_db.login_validation(req.body).then((user) => {
+            user_info = user;
+        });
+        req.session.active_id = user_info.ID;
+        res.redirect('/index');
+    }
 })
 
 console.log('I am here');

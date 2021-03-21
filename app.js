@@ -1,6 +1,7 @@
 const bodyParser = require('body-parser');
 
-express = require('express');
+const express = require('express');
+const session = require('express-session');
 
 const app = express();
 const PORT = 4000;
@@ -8,10 +9,22 @@ const PORT = 4000;
 
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
+app.use(session({
+    secret:"SoftLab",
+    resave: false,
+    saveUninitialized: true,
+    cookie:{
+        secure:true
+    }
+}))
 app.set('view engine', 'ejs');
-app.use('/', require('./controllers/login.js'));
 
-/// using routers
+/// including all routers
+app.use('/', require('./controllers/login.js'));
+app.use('/', require('./controllers/index.js'));
+app.use('/', require('./controllers/register.js'));
+
+/// using routers   
 
 
 
