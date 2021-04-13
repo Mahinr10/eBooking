@@ -1,49 +1,38 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel = "stylesheet" href="static/css/bootstrap.min.css" >
+
     </head>
     <body>
-        <div class="container">
-            <div class="jumbotron">
-                <h1>
-                    eBooking
-                </h1>
-                <p>
-                    The world is your home
-                </p>
-            </div>
+        <h1>
+            eBooking
+        </h1>
+        <h2>
+            The world is your home
+        </h2>
 
-            <form method='POST' action='/register'>
-                <div class= "form-group row">
-                    <div class = "col-sm-4">
-                        <label for = "name">Name</label>
-                        <input type = "text" class= "form-control" tag="name" name="name"> <br>
+        <form method='POST' action='/register'>
+            <label for = "name">Name</label> <br>
+            <input type = "text" tag="name" name="name"> <br><br>
 
-                        <label for = "email">Email</label>
-                        <input type ="text" class= "form-control" tag="email" name="email"> <br>
-                        
-                        <label for = "password">Password</label>
-                        <input type = "password" class= "form-control" tag = "pass" name="pass" > <br>
-                        
-                        <lable for = "organization">organization</lable>
-                        <input type="text" class= "form-control" tag="organization" name="organization"> <br>
-
-                        <label for = "address">Address</label>
-                        <input type = "text" class= "form-control" tag = "address" name="address"> <br> 
-
-                        <lable for = "phone">Phone</lable>
-                        <input type = "text" class= "form-control" tag = "phone" name="phone"><br>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <button type = "submit" class="btn btn-primary" name = "login" tag="login" value="login">Login</button>
-                    <button type = "submit" class = "btn btn-success" name = "register" tag = "register" value = "register"> Register </button>
-                </div>
-            </form>
-            <br><br>
+            <label for = "email">Email</label><br>
+            <input type ="text" tag="email" name="email"> <br><br>
             
-        </div>
-        <p style="text-align: center;" class="text-white-50 bg-dark">Copyright &copy; 2021 Group 2</p>
+            <label for = "password">Password</label> <br>
+            <input type = "password" tag = "pass" name="pass" > <br> <br>
+            
+            <lable for = "organization">organization</lable> <br>
+            <input type="text" tag="organization" name="organization"> <br> <br>
+
+            <label for = "address">Address</label> <br>
+            <input type = "text" tag = "address" name="address"> <br> <br>
+
+            <lable for = "phone">Phone</lable> <br>
+            <input type = "text" tag = "phone" name="phone"> <br> <br>
+            
+            <input type = "submit" name = "login" tag="login" value ="Login">
+            <input type = "submit" name = "register" tag = "register" value = "register">
+        </form>
     </body>
 </html>
+© 2021 GitHub, Inc.
