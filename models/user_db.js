@@ -69,6 +69,19 @@ function do_register(user_input){
     });
 }
 
+function get_user_info(user_id){
+    return new Promise((resolve, reject)=>{
+        Query = `select * from users where Person_id = ${user_id};`;
+        connection.query(Query, (err, rows, fields)=>{
+            if(err){
+                reject('error in finding user id');
+            }
+            resolve(JSON.parse(JSON.stringify(rows)));
+        })
+    })
+}
+
 module.exports.login_validation = login_validation;
 module.exports.register_eligibility = register_eligibility;
 module.exports.do_register = do_register;
+module.exports.get_user_info = get_user_info;
