@@ -12,9 +12,10 @@ app.use(express.json());
 app.use(session({
     secret:"SoftLab",
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     cookie:{
-        secure:true
+       // secure:true,
+        maxAge:3000000
     }
 }))
 app.set('view engine', 'ejs');

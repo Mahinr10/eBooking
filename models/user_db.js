@@ -53,10 +53,11 @@ function do_register(user_input){
                 reject("error raised")
             }
         });
-        let Query = `select * from users where Email = '${email}'`
+        console.log("done insertion");
+        Query = `select * from users where Email = '${email}'`
         connection.query(Query, (err, rows, fields)=>{
             if(err){
-                throw err;
+                reject('error in inserting');
             }
             if(rows.length > 0){
                 resolve(JSON.parse(JSON.stringify(rows)));
