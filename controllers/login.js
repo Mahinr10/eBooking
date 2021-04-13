@@ -1,6 +1,6 @@
 express = require('express');
 var router = express.Router();
-var user_db = require('../models/user_db')
+var user_db = require('../models/user_db');
 
 router.get('/login', (req, res)=>{
     res.render('login');
