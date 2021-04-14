@@ -24,6 +24,8 @@ app.set('view engine', 'ejs');
 app.use('/', require('./controllers/login.js'));
 app.use('/', require('./controllers/index.js'));
 app.use('/', require('./controllers/register.js'));
+app.use('/', require('./controllers/logout.js'));
+app.use('/', require('./controllers/profile.js'));
 
 /// setting static
 

@@ -81,7 +81,21 @@ function get_user_info(user_id){
     })
 }
 
+function update_user_info(user_id, user_info){
+    return new Promise((resolve, reject)=>{
+        Query = `update users set Name='${user_info.name}', Profession='${user_info.profession}', Organization = '${user_info.organization}', Phone = '${user_info.phone}',  Email='${user_info.email}', Address='${user_info.address}' where Person_id = ${user_id}`;
+        console.log(Query);
+        connection.query(Query, (err, rows, fields)=>{
+            if(err){
+                reject('error in updating');
+            }
+            resolve('happy updating');
+        })
+    })
+}
+
 module.exports.login_validation = login_validation;
 module.exports.register_eligibility = register_eligibility;
 module.exports.do_register = do_register;
 module.exports.get_user_info = get_user_info;
+module.exports.update_user_info = update_user_info;

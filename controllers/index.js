@@ -10,7 +10,8 @@ router.get('/index', (req, res)=>{
                 post_data = post_list;
                 let index_data = user_info[0];
                 index_data.posts = post_list;
-                res.send(index_data);
+               // res.send(index_data);
+                res.render('index', {data:index_data});
             });
         })
         
