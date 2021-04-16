@@ -1,18 +1,5 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>eBooking</title>
-        <link rel = "stylesheet" href="static/css/bootstrap.min.css" >
-    </head>
-    <body>
-        <div class ="container-fluid">
-            <h1>eBooking</h1>
-            <h2>Find your home everywhere</h2>
-            <ul>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="/profile">Profile</a></li>
-                <li><a href="/logout">logout</a></li>
-            </ul>
+<%- include('./partials/header.ejs') %>
+<%- include('./partials/navbar.ejs') %>
             <div class="row">
                 <div class="col-sm-4">
                     <img src="static/Images/profile_pic/<%=data.Person_id%>.jpg" height="auto" width="400px" alt="Profile_Pic">

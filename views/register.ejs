@@ -1,37 +1,111 @@
-<!DOCTYPE html>
-<html>
-    <head>
+<!-- Head -->
+<%- include('./partials/header.ejs') %>
 
-    </head>
-    <body>
-        <h1>
-            eBooking
-        </h1>
-        <h2>
-            The world is your home
-        </h2>
+        <style>
+            body{
+                background-color: #4f4f4f;
+            }
+            form{
+                margin-top: 5rem;
+                display: flex;
+                padding: 2rem;
+                flex-direction: column;
+                justify-content: center;
+                padding-left: 27%;
+                color: #fff;
+            }
+            .form-container{
+                border-radius: 15px 15px;
+                margin-left: 30%;
+                background-color: #333;
+                width: 40%;
+            }
+            label{
+                margin-right: 8px;
+            }
+            input{
+                height: 10%;
+                background-color: #4f4f4f;
+                color: #fff;
+                border: none;
+                padding: 5px;
+                margin-top: -5px;
+                border-radius: 5px 5px;
+                
+            }
+            input:focus {
+                outline: none;
+                box-shadow: none;
+            }
+            input[type=submit]{
+                padding: 10px;
+                border: #333f solid 1px;
+                transition: all ease-in-out 0.5s;
 
-        <form method='POST' action='/register'>
-            <label for = "name">Name</label> <br>
-            <input type = "text" tag="name" name="name"> <br><br>
+            }
+            input[type=submit]:first-child{
+                margin-left: 4rem;
+                margin-right: 1rem;
+            }
+            input[type=submit]:hover{
+                background-color: #333;
+                border: #3f3f3f solid 1px;
+            }
+            .form-elements{
+                display: flex;
+                padding: 1rem;
+            }
+        </style>
 
-            <label for = "email">Email</label><br>
-            <input type ="text" tag="email" name="email"> <br><br>
-            
-            <label for = "password">Password</label> <br>
-            <input type = "password" tag = "pass" name="pass" > <br> <br>
-            
-            <lable for = "organization">organization</lable> <br>
-            <input type="text" tag="organization" name="organization"> <br> <br>
 
-            <label for = "address">Address</label> <br>
-            <input type = "text" tag = "address" name="address"> <br> <br>
+        <div class='form-container'>
+            <form method='POST' action='/register'>
+                <!-- Form Title -->
+                <h1 style="margin-bottom: 2rem; margin-left: 3rem;"> Registation Form </h1>
 
-            <lable for = "phone">Phone</lable> <br>
-            <input type = "text" tag = "phone" name="phone"> <br> <br>
-            
-            <input type = "submit" name = "login" tag="login" value ="Login">
-            <input type = "submit" name = "register" tag = "register" value = "register">
-        </form>
+                <!-- Name -->
+                <div class='form-elements'>
+                    <label for = "name" style="margin-right: 45px;">Name</label>
+                    <input type = "text" tag="name" name="name">
+                </div>
+
+                <!-- Email -->
+                <div class='form-elements'>
+                    <label for = "email" style="margin-right: 45px;">Email</label>
+                    <input type ="text" tag="email" name="email"> 
+                </div>
+
+                <!-- Password -->
+                <div class='form-elements'>
+                    <label for = "password" style="margin-right: 25px;">Password</label> 
+                    <input type = "password" tag = "pass" name="pass" >  
+                </div>
+
+                <!-- Organization -->
+                <div class='form-elements'>
+                    <lable for = "organization" style="margin-right: 5px;">Organization</lable> 
+                    <input type="text" tag="organization" name="organization">  
+                </div>
+
+                <!-- Address -->
+                <div class='form-elements'>
+                    <label for = "address" style="margin-right: 35px;">Address</label> 
+                    <input type = "text" tag = "address" name="address">  
+                </div>
+
+                <!-- Phone -->
+                <div class='form-elements'>
+                    <lable for = "phone" style="margin-right: 50px;">Phone</lable> 
+                    <input type = "text" tag = "phone" name="phone">  
+                </div>
+
+                <!-- Buttons -->
+                <div class='form-elements'>
+                    <input type = "submit" name = "login" tag="login" value ="Login">
+                    <input type = "submit" name = "register" tag = "register" value = "register">
+                </div>
+            </form>
+        </div>
+
     </body>
 </html>
