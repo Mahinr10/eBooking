@@ -2,32 +2,49 @@
 <html>
     <head>
         <title>eBooking</title>
+        <link rel = "stylesheet" href="static/css/bootstrap.min.css" >
     </head>
     <body>
-        <h1>eBooking</h1>
-        <h2>Find your home everywhere</h2>
-        <img src="#" height="400px" width="300px" alt="Profile_Pic">
-        <form method='POST' action='/profile'>
-            <label for = "name">Name</label> <br>
-            <input type = "text" tag="name" name="name" value= "<%=data.Name %>" > <br><br>
+        <div class ="container-fluid">
+            <h1>eBooking</h1>
+            <h2>Find your home everywhere</h2>
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/logout">logout</a></li>
+            </ul>
+            <div class="row">
+                <div class="col-sm-4">
+                    <img src="static/Images/profile_pic/<%=data.Person_id%>.jpg" height="auto" width="400px" alt="Profile_Pic">
+                    <form method = 'POST' action="/profile_pic">
+                        <input type="file" name="profile_pic">
+                        <input type="submit" name="profile_pic_button" value="change">
+                    </form>
+                </div>
+                <div class = "col-sm-8">
+                    <form method='POST' action='/profile'>
+                        <label for = "name">Name</label> <br>
+                        <input type = "text" tag="name" name="name" value= "<%=data.Name %>" > <br><br>
 
-            <label for = "email">Email</label><br>
-            <input type ="text" tag="email" name="email" value= "<%=data.Email%>"> <br><br>
-            
-            <lable for = "organization">Organization</lable> <br>
-            <input type="text" tag="organization" name="organization" value = "<%=data.Organization%>"> <br> <br>
+                        <label for = "email">Email</label><br>
+                        <input type ="text" tag="email" name="email" value= "<%=data.Email%>"> <br><br>
+                        
+                        <lable for = "organization">Organization</lable> <br>
+                        <input type="text" tag="organization" name="organization" value = "<%=data.Organization%>"> <br> <br>
 
-            <lable for = "profession">Profession</lable> <br>
-            <input type="text" tag="profession" name="profession" value = "<%=data.Profession%>"> <br> <br>
+                        <lable for = "profession">Profession</lable> <br>
+                        <input type="text" tag="profession" name="profession" value = "<%=data.Profession%>"> <br> <br>
 
-            <label for = "address">Address</label> <br>
-            <input type = "text" tag = "address" name="address" value="<%=data.Address%>"> <br> <br>
+                        <label for = "address">Address</label> <br>
+                        <input type = "text" tag = "address" name="address" value="<%=data.Address%>"> <br> <br>
 
-            <lable for = "phone">Phone</lable> <br>
-            <input type = "text" tag = "phone" name="phone" value="<%=data.Phone%>"> <br> <br>
-            
-            <input type = "submit" name = "update" tag="update" value ="Save Changes">
-        </form>
-
+                        <lable for = "phone">Phone</lable> <br>
+                        <input type = "text" tag = "phone" name="phone" value="<%=data.Phone%>"> <br> <br>
+                        
+                        <input type = "submit" name = "update" tag="update" value ="Save Changes">
+                    </form>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
