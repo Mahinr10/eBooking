@@ -14,8 +14,6 @@ router.get('/index', (req, res)=>{
                 res.render('index', {data:index_data});
             });
         })
-        
-        
     }
     else{
         res.redirect('/login');

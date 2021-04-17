@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>eBooking</title>
-    </head>
-    <body>
-        <h1>eBooking</h1>
-        <h2>Find home everywhere</h2>
-        <ul>
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="/profile">Profile</a></li>
-            <li><a href="/logout">logout</a></li>
-        </ul>
+<%- include('./partials/header.ejs') %>
+<%- include('./partials/navbar.ejs') %>
+
+
+
+
         <h3>find your place</h3>
         <div>
             <% data.posts.forEach(function(post){ %>

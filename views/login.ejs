@@ -1,25 +1,83 @@
-<!DOCTYPE html>
-<html>
-    <head>
+<!-- Head -->
+<%- include('./partials/header.ejs') %>
 
-    </head>
-    <body>
-        <h1>
-            eBooking
-        </h1>
-        <h2>
-            The world is your home
-        </h2>
+        <style>
+            body{
+                background-color: #4f4f4f;
+            }
+            form{
+                margin-top: 5rem;
+                display: flex;
+                padding: 2rem;
+                flex-direction: column;
+                justify-content: center;
+                padding-left: 27%;
+                color: #fff;
+            }
+            .form-container{
+                border-radius: 15px 15px;
+                margin-left: 30%;
+                background-color: #333;
+                width: 40%;
+            }
+            label{
+                margin-right: 8px;
+            }
+            input{
+                height: 10%;
+                background-color: #4f4f4f;
+                color: #fff;
+                border: none;
+                padding: 5px;
+                margin-top: -5px;
+                border-radius: 5px 5px;
+                
+            }
+            input:focus {
+                outline: none;
+                box-shadow: none;
+            }
+            input[type=submit]{
+                padding: 10px;
+                border: #333f solid 1px;
+                transition: all ease-in-out 0.5s;
 
-        <form method='POST' action='/login'>
-            <label for = "email">Email</label><br>
-            <input type ="text" tag="email" name="email"> <br><br>
+            }
+            input[type=submit]:first-child{
+                margin-left: 4rem;
+                margin-right: 1rem;
+            }
+            input[type=submit]:hover{
+                background-color: #333;
+                border: #3f3f3f solid 1px;
+            }
+            .form-elements{
+                display: flex;
+                padding: 1rem;
+            }
 
-            <label for = "password">Password</label> <br>
-            <input type = "password" tag = "pass" name="pass" > <br><br> 
-            
-            <input type = "submit" name = "login" tag="login" value ="Login">
-            <input type = "submit" name = "register" tag = "register" value = "register">
-        </form>
+        </style>
+        <div class='form-container'>
+
+            <form method='POST' action='/login'>
+                <!-- Form Title -->
+                <h1 style="margin-bottom: 2rem; margin-left: 3rem;"> Login Form </h1>
+                <!-- Email -->
+                <div class='form-elements'>
+                    <label style = "margin-right: 28px;" for = "email">Email</label><br>
+                    <input type ="text" tag="email" name="email"> <br><br>
+                </div>
+                <!-- Password -->
+                <div class='form-elements'>
+                    <label for = "password">Password</label> <br>
+                    <input type = "password" tag = "pass" name="pass" > <br><br> 
+                </div>
+                <!-- Buttons -->
+                <div class='form-elements'>
+                    <input type = "submit" name = "login" tag="login" value ="Login">
+                    <input type = "submit" name = "register" tag = "register" value = "Register">
+                </div>
+            </form>
+        </div>
     </body>
 </html>
