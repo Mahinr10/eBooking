@@ -15,8 +15,8 @@
             </ul>
             <div class="row">
                 <div class="col-sm-4">
-                    <img src="static/Images/profile_pic/<%=data.Person_id%>.jpg" height="auto" width="400px" alt="Profile_Pic">
-                    <form method = 'POST' action="/profile_pic">
+                    <img src="static/Images/profile_pic/<%=data.Person_id%>.jpg" height="auto" width="250px" alt="Profile_Pic">
+                    <form method = 'POST' action="/profile_pic" enctype="multipart/form-data">
                         <input type="file" name="profile_pic">
                         <input type="submit" name="profile_pic_button" value="change">
                     </form>
