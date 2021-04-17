@@ -1,37 +1,167 @@
-<%- include('./partials/header.ejs') %>
+
 <%- include('./partials/navbar.ejs') %>
-            <div class="row">
-                <div class="col-sm-4">
-                    <img src="static/Images/profile_pic/<%=data.Person_id%>.jpg" style="margin-left:20px" height="auto" width="250px" alt="Profile_Pic">
-                    <form method = 'POST' action="/profile_pic" enctype="multipart/form-data" style="margin-left:20px">
-                        <input type="file" name="profile_pic">
-                        <input type="submit" name="profile_pic_button" value="change">
-                    </form>
+
+<br>
+
+<main>
+    <div class="container-fluid">
+
+      <!-- Section: Edit Account -->
+      <section class="section">
+        <!-- First row -->
+        <div class="row">
+          <!-- First column -->
+          <div class="col-lg-4 mb-4">
+
+            <!-- Card -->
+            <div class="card card-cascade narrower">
+
+              <!-- Card image -->
+              <div class="view view-cascade gradient-card-header mdb-color lighten-3">
+               <h5 class="mb-0 font-weight-bold">Edit Photo</h5>
+              </div>
+              <!-- Card image -->
+
+              <!-- Card content -->
+              <div class="card-body card-body-cascade text-center">
+                <img src="https://picsum.photos/500/500" high="150" width ="150" alt="User Photo" class="z-depth-1 mb-3 mx-auto" />
+                <h5><%=data.Name %></h5>
+                <p class="text-muted"><small>bio</small></p>
+                <form method = 'POST' action="/profile_pic" enctype="multipart/form-data">
+                <div class="row flex-center">
+                    <input type="file" class="form-control" id="customFile" name="profile_pic" />
                 </div>
-                <div class = "col-sm-8">
-                    <form method='POST' action='/profile' style="margin-left:20px">
-                        <label style = "color: white;" for = "name">Name</label> <br>
-                        <input type = "text" tag="name" name="name" value= "<%=data.Name %>" > <br><br>
-
-                        <label style = "color: white;" for = "email"  >Email</label><br>
-                        <input type ="text" tag="email" name="email" value= "<%=data.Email%>"> <br><br>
-                        
-                        <lable style = "color: white;" for = "organization">Organization</lable> <br>
-                        <input type="text" tag="organization" name="organization" value = "<%=data.Organization%>"> <br> <br>
-
-                        <lable style = "color: white;" for = "profession">Profession</lable> <br>
-                        <input type="text" tag="profession" name="profession" value = "<%=data.Profession%>"> <br> <br>
-
-                        <label style = "color: white;" for = "address">Address</label> <br>
-                        <input type = "text" tag = "address" name="address" value="<%=data.Address%>"> <br> <br>
-
-                        <lable style = "color: white;" for = "phone">Phone</lable> <br>
-                        <input type = "text" tag = "phone" name="phone" value="<%=data.Phone%>"> <br> <br>
-                        
-                        <input type = "submit" name = "update" tag="update" value ="Save Changes">
-                    </form>
+                <br>
+            
+                <div class="row flex-center">
+                   <div><button name="profile_pic_button" value="change" class="btn btn-info btn-rounded">Upload New Photo</button></div>
                 </div>
+                </form>
+              </div>
+              <!-- Card content -->
+
             </div>
+            <!-- Card -->
+
+          </div>
+          <!-- First column -->
+
+          <!-- Second column -->
+          <div class="col-lg-8 mb-4">
+
+            <!-- Card -->
+            <div class="card card-cascade narrower">
+
+              <!-- Card image -->
+              <div>
+               <h5 class="mb-0 font-weight-bold">Edit Account</h5>
+              </div>
+              <!-- Card image -->
+
+              <!-- Card content -->
+              <div class="card-body card-body-cascade text-center">
+
+                <!-- Edit Form -->
+                <form method='POST' action='/profile'>
+                  <!-- First row -->
+
+                  <div class="row">
+
+                    <!-- First column -->
+                    <div class="col-md-6">
+                      <div class="md-form mb-0">
+                        <label for="form1" data-error="wrong" data-success="right">Name</label>
+                        <input type="text" id="form1" class="form-control validate" value="<%=data.Name %>">
+                        
+                      </div>
+                      <br>
+                    </div>
+                    <!-- Second column -->
+                    <div class="col-md-6">
+                      <div class="md-form mb-0">
+                        <label for="form2" data-error="wrong" data-success="right">Email</label>
+                        <input type="text" id="form2" class="form-control validate" value= "<%=data.Email%>">
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <!-- First row -->
+
+                  <!-- First row -->
+                  <div class="row">
+                    <!-- First column -->
+                    <div class="col-md-6">
+                      <div class="md-form mb-0">
+                        <label for="form81" data-error="wrong" data-success="right">Organization</label>
+                        <input type="text" id="form81" class="form-control validate"  value = "<%=data.Organization%>">
+                        
+                      </div>
+                    </div>
+
+                    <!-- Second column -->
+                    <div class="col-md-6">
+                      <div class="md-form mb-0">
+                        <label for="form82" data-error="wrong" data-success="right">Profession</label>
+                        <input type="text" id="form82" class="form-control validate" value = "<%=data.Profession%>">
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <!-- First row -->
+                  <br>
+                  <!-- Second row -->
+                  <div class="row">
+
+                    <!-- First column -->
+                    <div class="col-md-6">
+                      <div class="md-form mb-0">
+                        <label for="form76">Address</label>
+                        <input type="email" id="form76" class="form-control validate" value="<%=data.Address%>">
+                        
+                      </div>
+                    </div>
+                    <!-- Second column -->
+
+                    <div class="col-md-6">
+                      <div class="md-form mb-0">
+                        <label for="form77" data-error="wrong" data-success="right">Phone</label>
+                        <input type="text" id="form77" class="form-control validate" value="<%=data.Phone%>">
+                       
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Second row -->
+
+                
+
+                  <!-- Fourth row -->
+                  <div class="row">
+                    <div class="col-md-12 text-center my-4">
+                      <input type="submit" class="btn btn-info btn-rounded" name = "update" tag="update" value ="Save Changes">
+                    </div>
+                  </div>
+                  <!-- Fourth row -->
+
+                </form>
+                <!-- Edit Form -->
+
+              </div>
+              <!-- Card content -->
+
+            </div>
+            <!-- Card -->
+
+          </div>
+          <!-- Second column -->
+
         </div>
-    </body>
+        <!-- First row -->
+
+      </section>
+      <!-- Section: Edit Account -->
+
+    </div>
+
+  </main>
+</body>
 </html>
