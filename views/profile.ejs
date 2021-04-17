@@ -2,30 +2,30 @@
 <%- include('./partials/navbar.ejs') %>
             <div class="row">
                 <div class="col-sm-4">
-                    <img src="static/Images/profile_pic/<%=data.Person_id%>.jpg" height="auto" width="250px" alt="Profile_Pic">
-                    <form method = 'POST' action="/profile_pic" enctype="multipart/form-data">
+                    <img src="static/Images/profile_pic/<%=data.Person_id%>.jpg" style="margin-left:20px" height="auto" width="250px" alt="Profile_Pic">
+                    <form method = 'POST' action="/profile_pic" enctype="multipart/form-data" style="margin-left:20px">
                         <input type="file" name="profile_pic">
                         <input type="submit" name="profile_pic_button" value="change">
                     </form>
                 </div>
                 <div class = "col-sm-8">
-                    <form method='POST' action='/profile'>
-                        <label for = "name">Name</label> <br>
+                    <form method='POST' action='/profile' style="margin-left:20px">
+                        <label style = "color: white;" for = "name">Name</label> <br>
                         <input type = "text" tag="name" name="name" value= "<%=data.Name %>" > <br><br>
 
-                        <label for = "email">Email</label><br>
+                        <label style = "color: white;" for = "email"  >Email</label><br>
                         <input type ="text" tag="email" name="email" value= "<%=data.Email%>"> <br><br>
                         
-                        <lable for = "organization">Organization</lable> <br>
+                        <lable style = "color: white;" for = "organization">Organization</lable> <br>
                         <input type="text" tag="organization" name="organization" value = "<%=data.Organization%>"> <br> <br>
 
-                        <lable for = "profession">Profession</lable> <br>
+                        <lable style = "color: white;" for = "profession">Profession</lable> <br>
                         <input type="text" tag="profession" name="profession" value = "<%=data.Profession%>"> <br> <br>
 
-                        <label for = "address">Address</label> <br>
+                        <label style = "color: white;" for = "address">Address</label> <br>
                         <input type = "text" tag = "address" name="address" value="<%=data.Address%>"> <br> <br>
 
-                        <lable for = "phone">Phone</lable> <br>
+                        <lable style = "color: white;" for = "phone">Phone</lable> <br>
                         <input type = "text" tag = "phone" name="phone" value="<%=data.Phone%>"> <br> <br>
                         
                         <input type = "submit" name = "update" tag="update" value ="Save Changes">

@@ -8,7 +8,7 @@ var connection = mysql.createConnection({
 });
 
 function get_all_post(){
-    Query = `select * from posts`
+    Query = `SELECT users.Name, posts.text_body, posts.post_time, posts.start_time, posts.end_time, posts.end_time, posts.Amount from posts left JOIN users on posts.Person_id = users.Person_id`
     return new Promise((resolve, reject)=>{
         connection.query(Query, (err, rows, fields)=>{
             if(err){

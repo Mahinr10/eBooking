@@ -10,7 +10,8 @@ const storage = multer.diskStorage({
 
 });
 
-const upload = multer({storage: storage}).single('profile_pic');
+const upload = multer({storage: storage,
+    limits: {fileSize: 1000000}}).single('profile_pic');
 
 var router = express.Router();
 
@@ -36,7 +37,8 @@ router.post('/profile_pic', (req, res)=>{
             console.log(err);
         }
         else{
-            console.log(req.file);;
+            console.log(req.file);
+            res.send({success:true});
         }
     })
 })

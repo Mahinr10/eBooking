@@ -2,14 +2,17 @@
 <%- include('./partials/navbar.ejs') %>
 
 
-
-
-        <h3>find your place</h3>
         <div>
-            <% data.posts.forEach(function(post){ %>
-            <div>
-                <h4><%= post.Person_id %></h4>
+            <% data.forEach(function(post){ %>
+            <div style="background-color: antiquewhite; margin-top:30px; margin-left: 80px; margin-right: 80px; padding: 30px;">
+                <h4><%= post.Name %></h4>
+                <p><%=post.post_time%></p>
                 <p><%=post.text_body%></p>
+                <table style="margin-left: auto; margin-right: auto; text-align: center;"><caption>Details</caption>
+                    <tr><td>Start Time</td><td><%=post.start_time%></td></tr>
+                    <tr><td>End Time</td><td><%=post.end_time%></td></tr>
+                    <tr><td>Amount</td><td><%=post.Amount%> BDT</td></tr>
+                </table>
             </div>
             <%}) %>
             
