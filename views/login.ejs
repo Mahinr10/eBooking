@@ -1,83 +1,76 @@
-<!-- Head -->
-<%- include('./partials/header.ejs') %>
 
-        <style>
-            body{
-                background-color: #4f4f4f;
-            }
-            form{
-                margin-top: 5rem;
-                display: flex;
-                padding: 2rem;
-                flex-direction: column;
-                justify-content: center;
-                padding-left: 27%;
-                color: #fff;
-            }
-            .form-container{
-                border-radius: 15px 15px;
-                margin-left: 30%;
-                background-color: #333;
-                width: 40%;
-            }
-            label{
-                margin-right: 8px;
-            }
-            input{
-                height: 10%;
-                background-color: #4f4f4f;
-                color: #fff;
-                border: none;
-                padding: 5px;
-                margin-top: -5px;
-                border-radius: 5px 5px;
-                
-            }
-            input:focus {
-                outline: none;
-                box-shadow: none;
-            }
-            input[type=submit]{
-                padding: 10px;
-                border: #333f solid 1px;
-                transition: all ease-in-out 0.5s;
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.82.0">
+    <title>eBooking Sign In</title>
 
-            }
-            input[type=submit]:first-child{
-                margin-left: 4rem;
-                margin-right: 1rem;
-            }
-            input[type=submit]:hover{
-                background-color: #333;
-                border: #3f3f3f solid 1px;
-            }
-            .form-elements{
-                display: flex;
-                padding: 1rem;
-            }
+    <link rel="canonical" href="/login">
 
-        </style>
-        <div class='form-container'>
+    
 
-            <form method='POST' action='/login'>
-                <!-- Form Title -->
-                <h1 style="margin-bottom: 2rem; margin-left: 3rem;"> Login Form </h1>
-                <!-- Email -->
-                <div class='form-elements'>
-                    <label style = "margin-right: 28px;" for = "email">Email</label><br>
-                    <input type ="text" tag="email" name="email"> <br><br>
-                </div>
-                <!-- Password -->
-                <div class='form-elements'>
-                    <label for = "password">Password</label> <br>
-                    <input type = "password" tag = "pass" name="pass" > <br><br> 
-                </div>
-                <!-- Buttons -->
-                <div class='form-elements'>
-                    <input type = "submit" name = "login" tag="login" value ="Login">
-                    <input type = "submit" name = "register" tag = "register" value = "Register">
-                </div>
-            </form>
-        </div>
-    </body>
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <!-- Favicons -->
+<link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/5.0/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
+<link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
+<meta name="theme-color" content="#7952b3">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/5.0/examples/sign-in/signin.css" rel="stylesheet">
+  </head>
+  <body class="text-center">
+    
+<main class="form-signin">
+  <form method='POST' action='/login'>
+    <img class="mb-4" src="https://raw.githubusercontent.com/abdarker/dataset/master/logo.svg" alt="" width="72" height="57">
+    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+    <div class="form-floating">
+      <input type="email" tag="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <label for="floatingInput">Email address</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" tag = "pass" name="pass" class="form-control" id="floatingPassword" placeholder="Password">
+      <label for="floatingPassword">Password</label>
+    </div>
+
+    <button class="w-100 btn btn-lg btn-primary" type="submit" name = "login" tag="login" value ="Login">Sign In</button>
+    <br>
+    <br>
+    <button class="w-100 btn btn-lg btn-info" type="submit"name = "register" tag = "register" value = "Register">Sign Up</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2021 eBooking</p>
+  </form>
+</main>
+
+
+    
+  </body>
 </html>
