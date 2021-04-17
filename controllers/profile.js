@@ -3,7 +3,7 @@ const user_db = require('../models/user_db');
 const multer = require('multer');
 
 const storage = multer.diskStorage({
-    destination: './static/Images/profile_pic',
+    destination: './public/Images/profile_pic',
     filename: function(req, file, callback){
         callback(null, `${req.session.active_id}.jpg`);
     }
