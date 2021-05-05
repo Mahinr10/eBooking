@@ -24,7 +24,7 @@
 
               <!-- Card content -->
               <div class="card-body card-body-cascade text-center">
-                <img src="https://picsum.photos/500/500" high="150" width ="150" alt="User Photo" class="z-depth-1 mb-3 mx-auto" />
+                <img src="/static/Images/profile_pic/<%=data.Person_id%>.jpg" high="150" width ="150" alt="User Photo" class="z-depth-1 mb-3 mx-auto" />
                 <h5><%=data.Name %></h5>
                 <p class="text-muted"><small>bio</small></p>
                 <form method = 'POST' action="/profile_pic" enctype="multipart/form-data">

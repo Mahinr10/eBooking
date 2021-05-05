@@ -38,7 +38,7 @@ router.post('/profile_pic', (req, res)=>{
         }
         else{
             console.log(req.file);
-            res.send({success:true});
+            res.redirect('/profile');
         }
     })
 })
