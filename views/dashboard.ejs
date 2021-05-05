@@ -1,0 +1,25 @@
+<%- include('./partials/header.ejs') %>
+<%- include('./partials/navbar.ejs') %>
+
+
+        <div style="border: 1px; border-radius: 10px; background-color: burlywood; margin: 20px; padding:20px">
+            <form method = "POST", action="/user_post", enctype="multipart/form-data">
+                <textarea rows="5", cols="63">write something </textarea>
+                <br><br>
+                <label> starting time</label>
+                <input type="date"><input type="time">
+                <br><br>
+                <label> ending time</label>
+                <input type="date"><input type="time">
+                <br><br>
+                <label>Amount</label>
+                <input type="number">
+                <br><br>
+                <input type="file" multiple="multiple">
+                <br><br>
+                <input type="submit" value="Post">
+
+            </form>
+        </div>
+    </body>
+</html>

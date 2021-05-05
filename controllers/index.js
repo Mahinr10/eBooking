@@ -7,8 +7,12 @@ router.get('/index', (req, res)=>{
     if(req.session.active_id){
          post_db.get_all_post().then((post_list)=>{
                // res.send(post_list);
-               console.log(post_list);
-                res.render('index', {data:post_list});
+            user_db.get_user_info(req.session.active_id).then((ui)=>{
+                console.log(post_list);
+                console.log(ui);
+                res.render('index', {data:post_list, user_data:ui[0]});
+            })
+               
             });
         
     }
