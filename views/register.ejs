@@ -1,111 +1,164 @@
-<!-- Head -->
-<%- include('./partials/header.ejs') %>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <style>
-            body{
-                background-color: #4f4f4f;
-            }
-            form{
-                margin-top: 5rem;
-                display: flex;
-                padding: 2rem;
-                flex-direction: column;
-                justify-content: center;
-                padding-left: 27%;
-                color: #fff;
-            }
-            .form-container{
-                border-radius: 15px 15px;
-                margin-left: 30%;
-                background-color: #333;
-                width: 40%;
-            }
-            label{
-                margin-right: 8px;
-            }
-            input{
-                height: 10%;
-                background-color: #4f4f4f;
-                color: #fff;
-                border: none;
-                padding: 5px;
-                margin-top: -5px;
-                border-radius: 5px 5px;
-                
-            }
-            input:focus {
-                outline: none;
-                box-shadow: none;
-            }
-            input[type=submit]{
-                padding: 10px;
-                border: #333f solid 1px;
-                transition: all ease-in-out 0.5s;
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="public/css/main.css">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
+    <title>eBooking</title>
 
-            }
-            input[type=submit]:first-child{
-                margin-left: 4rem;
-                margin-right: 1rem;
-            }
-            input[type=submit]:hover{
-                background-color: #333;
-                border: #3f3f3f solid 1px;
-            }
-            .form-elements{
-                display: flex;
-                padding: 1rem;
-            }
-        </style>
+   
+  </head>
+  <body>
+	
+	  <br>
+	  <br>
+	  
 
+<main>
+    <div class="container-fluid">
 
-        <div class='form-container'>
-            <form method='POST' action='/register'>
-                <!-- Form Title -->
-                <h1 style="margin-bottom: 2rem; margin-left: 3rem;"> Registation Form </h1>
+      <!-- Section: Edit Account -->
+      <section class="section">
+        <!-- First row -->
+        <div class="row">
+          <!-- First column -->
+          <div class="col-lg-4 ">
 
-                <!-- Name -->
-                <div class='form-elements'>
-                    <label for = "name" style="margin-right: 45px;">Name</label>
-                    <input type = "text" tag="name" name="name">
-                </div>
-
-                <!-- Email -->
-                <div class='form-elements'>
-                    <label for = "email" style="margin-right: 45px;">Email</label>
-                    <input type ="text" tag="email" name="email"> 
-                </div>
-
-                <!-- Password -->
-                <div class='form-elements'>
-                    <label for = "password" style="margin-right: 25px;">Password</label> 
-                    <input type = "password" tag = "pass" name="pass" >  
-                </div>
-
-                <!-- Organization -->
-                <div class='form-elements'>
-                    <lable for = "organization" style="margin-right: 5px;">Organization</lable> 
-                    <input type="text" tag="organization" name="organization">  
-                </div>
-
-                <!-- Address -->
-                <div class='form-elements'>
-                    <label for = "address" style="margin-right: 35px;">Address</label> 
-                    <input type = "text" tag = "address" name="address">  
-                </div>
-
-                <!-- Phone -->
-                <div class='form-elements'>
-                    <lable for = "phone" style="margin-right: 50px;">Phone</lable> 
-                    <input type = "text" tag = "phone" name="phone">  
-                </div>
-
-                <!-- Buttons -->
-                <div class='form-elements'>
-                    <input type = "submit" name = "login" tag="login" value ="Login">
-                    <input type = "submit" name = "register" tag = "register" value = "register">
-                </div>
-            </form>
         </div>
+          <div class="col-lg-4 ">
 
-    </body>
-</html>
+            <!-- Card -->
+            <div class="card border-0 card-cascade narrower">
+              <!-- Card content -->
+              <div class="card-body card-body-cascade text-center">
+
+                <img class="mb-4" src="https://raw.githubusercontent.com/abdarker/dataset/master/logo.svg" alt="" width="72" height="57">
+                 <h1  class="h3 mb-3 fw-normal">Please Sign Up</h1> 
+
+                <!-- Edit Form -->
+                <form method='POST' action='/register'>
+                  <!-- First row -->
+
+                  <div class="row">
+
+                    <!-- First column -->
+                    <div class="col-md-6">
+                      <div class="md-form mb-0">
+                        <label for="name" data-error="wrong" data-success="right">Name</label>
+                        <input type="text" tag="name" name="name" class="form-control validate " value="">
+                        
+                      </div>
+                      <br>
+                    </div>
+                    <!-- Second column -->
+                    <div class="col-md-6">
+                      <div class="md-form mb-0">
+                        <label for="email" data-error="wrong" data-success="right">Email</label>
+                        <input type="email" tag="email" name="email" class="form-control validate " value="">
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <!-- First row -->
+
+                  <!-- First row -->
+                  <div class="row">
+                    <!-- First column -->
+                    <div class="col-md-6">
+                      <div class="md-form mb-0">
+                        <label for="password" data-error="wrong" data-success="right">Password</label>
+                        <input type="password" tag = "pass" name="pass" class="form-control validate" value="">
+                        
+                        
+                      </div>
+                    </div>
+
+                    <!-- Second column -->
+                    <div class="col-md-6">
+                      <div class="md-form mb-0">
+                        <label for="organization" data-error="wrong" data-success="right">Organization</label>
+                        <input type="text" tag="organization" name="organization" class="form-control validate" value="" >
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <!-- First row -->
+                  <br>
+                  <!-- Second row -->
+                  <div class="row">
+
+                    <!-- First column -->
+                    <div class="col-md-6">
+                      <div class="md-form mb-0">
+                        <label for="address">Address</label>
+                        <input type="text" tag = "address" name="address" class="form-control validate " value="">
+                        
+                      </div>
+                    </div>
+                    <!-- Second column -->
+
+                    <div class="col-md-6">
+                      <div class="md-form mb-0">
+                        <label for="phone" data-error="wrong" data-success="right">Phone</label>
+                        <input type="text" tag = "phone" name="phone" class="form-control validate " value="">
+                       
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Second row -->
+
+                
+
+                  <!-- Fourth row -->
+                  <div class="row">
+                    <div class="col-md-12 text-center my-4">
+                      <input type="submit" class="btn btn-info btn-rounded text-white" name = "login" tag="login" value ="Log In">
+                      <input type="submit" class="btn btn-success btn-rounded" name = "register" tag="register" value ="Submit">
+                    </div>
+                  </div>
+                  <!-- Fourth row -->
+                  <p class=" text-muted">&copy; 2021 eBooking</p>
+                </form>
+                <!-- Edit Form -->
+                
+
+              </div>
+              <!-- Card content -->
+
+            </div>
+            <!-- Card -->
+
+          </div>
+          <!-- Second column -->
+
+        </div>
+        <!-- First row -->
+
+      </section>
+      <!-- Section: Edit Account -->
+
+    </div>
+
+  </main>
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+	
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+    
+  </body>

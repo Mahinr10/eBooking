@@ -5,16 +5,17 @@
     <div class="row">
         <div class="col-md-3">
             <div class="card">
-                <div class="card-body">
-                    <div class="h5" >Name</div>
-                    
-                    <div class="h7"><%=user_data.Name%>
-                    </div>
+                <div class="card-body text-center">
+                    <img src="https://picsum.photos/500/500" high="90" width ="90" alt="User Photo" class="rounded-circle" />
+                    <h5 style="margin-top: .75rem ;" ><%=user_data.Name %></h5>
+                        
+                        
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
                         <div class="h6 text-muted">Followers</div>
                         <div class="h5">5</div>
+                        
                     </li>
                     <li class="list-group-item">
                         <div class="h6 text-muted">Following</div>
@@ -86,7 +87,7 @@
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"><strong>Start Time: <i class="fa fa-calendar"></i></strong> <%=post.start_time.slice(0, 10)%> <i class="fa fa-clock-o"></i> <%=post.start_time.slice(11, 19)%></li>
-                        <li class="list-group-item"><strong>Start Time: <i class="fa fa-calendar"></i></strong> <%=post.end_time.slice(0, 10)%> <i class="fa fa-clock-o"></i> <%=post.end_time.slice(11, 19)%></li>
+                        <li class="list-group-item"><strong>End Time: <i class="fa fa-calendar"></i></strong> <%=post.end_time.slice(0, 10)%> <i class="fa fa-clock-o"></i> <%=post.end_time.slice(11, 19)%></li>
                         <li class="list-group-item"><strong>Amount: </strong><%=post.Amount%> tk</li>
                     </ul>
                     <div style="margin-top: .5rem; margin-left: .75rem; " class="text-muted h7 mb-2">
@@ -94,7 +95,7 @@
                         <i class="fa fa-calendar" ></i> <%=post.post_time.slice(0, 10)%> 
                         <i class="fa fa-clock-o" style="margin-left: .5rem;"></i> <%=post.post_time.slice(11, 19)%> </p>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" style="margin-top: -1.5rem;">
                       <button href="#" style="font-size:smaller;" type="button" class="btn btn-danger">Report</button>
                       <button href="#" style="font-size:smaller;" type="button" class="btn btn-info">Contact</button>
                     </div>
