@@ -39,19 +39,38 @@
                     </ul>
                 </div>
                 <div class="card-body">
+                    <form method="POST" action="/post">
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
-                            <div class="form-group">
-                                <label class="sr-only" for="message">post</label>
-                                <textarea class="form-control" id="message" rows="3" placeholder="Write something..."></textarea>
-                            </div>
-                            <br>
-                            <div class="form-group">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="customFile">
-                                    <label class="custom-file-label" for="customFile"></label>
+                            
+                                <div class="form-group">
+                                    
+                                    <label class="sr-only" for="message">post</label>
+                                    <textarea class="form-control" name="post_text" id="message" rows="3" placeholder="Write something..."></textarea>
                                 </div>
-                            </div>
+                                <br>
+                                <div class="form-group">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="customFile">
+                                        <label class="custom-file-label" for="customFile"></label>
+                                    </div>
+                                </div>
+                                <div class = "form-group">
+                                    <br>
+                                    <label for = "start_time">Start Time: </label>
+                                    <input type="date" name="start_date">
+                                    <input type="time" name="start_time">
+                                    <br>
+                                    <br>
+                                    <label for = "end_time">End Time: </label>
+                                    <input type="date" name="end_date">
+                                    <input type="time" name="end_time">
+                                    <br>
+                                    <br>
+                                    <label for = "Amount"> Amount</label>
+                                    <input type="number" name="amount">
+                                </div>
+                            
 
                         </div>
                         
@@ -59,9 +78,10 @@
                     <br>
                     <div class="btn-toolbar justify-content-between">
                         <div class="btn-group">
-                            <button type="submit" class="btn btn-primary">Share</button>
+                            <button type="submit" name="share button" class="btn btn-primary">Share</button>
                         </div>
                     </div>
+                </form>
                 </div>
             </div>
             <br>
@@ -86,7 +106,7 @@
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"><strong>Start Time: <i class="fa fa-calendar"></i></strong> <%=post.start_time.slice(0, 10)%> <i class="fa fa-clock-o"></i> <%=post.start_time.slice(11, 19)%></li>
-                        <li class="list-group-item"><strong>Start Time: <i class="fa fa-calendar"></i></strong> <%=post.end_time.slice(0, 10)%> <i class="fa fa-clock-o"></i> <%=post.end_time.slice(11, 19)%></li>
+                        <li class="list-group-item"><strong>End Time: <i class="fa fa-calendar"></i></strong> <%=post.end_time.slice(0, 10)%> <i class="fa fa-clock-o"></i> <%=post.end_time.slice(11, 19)%></li>
                         <li class="list-group-item"><strong>Amount: </strong><%=post.Amount%> tk</li>
                     </ul>
                     <div style="margin-top: .5rem; margin-left: .75rem; " class="text-muted h7 mb-2">

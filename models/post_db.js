@@ -19,4 +19,9 @@ function get_all_post(){
     })
 }
 
+function make_post(obj){
+
+}
+
 module.exports.get_all_post = get_all_post;
+module.exports.make_post = make_post(obj);
