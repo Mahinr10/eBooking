@@ -18,18 +18,19 @@
 
               <!-- Card image -->
               <div class="view view-cascade gradient-card-header mdb-color lighten-3">
-               <h5 class="mb-0 font-weight-bold">Edit Photo</h5>
+               <h5 class="mb-0 font-weight-bold" style="margin-left: 1.5rem; margin-top: .7rem ;">Edit Photo</h5>
               </div>
               <!-- Card image -->
 
               <!-- Card content -->
               <div class="card-body card-body-cascade text-center">
-                <img src="/static/Images/profile_pic/<%=data.Person_id%>.jpg" high="150" width ="150" alt="User Photo" class="z-depth-1 mb-3 mx-auto" />
-                <h5><%=data.Name %></h5>
+                <!--<img src="/static/Images/profile_pic/<%=data.Person_id%>.jpg" high="150" width ="150" alt="User Photo" class="z-depth-1 mb-3 mx-auto" />-->
+                <img src="/static/Images/profile_pic/<%=data.Person_id%>.jpg" high="100" width ="100" alt="User Photo" class="rounded-circle" />
+                <h5 style="margin-top: .75rem ;" ><%=data.Name %></h5>
                 <p class="text-muted"><small>bio</small></p>
-                <form method = 'POST' action="/profile_pic" enctype="multipart/form-data">
+                <form  method = 'POST' action="/profile_pic" enctype="multipart/form-data">
                 <div class="row flex-center">
-                    <input type="file" class="form-control" id="customFile" name="profile_pic" />
+                    <input  type="file" class="form-control" id="customFile" name="profile_pic" />
                 </div>
                 <br>
             
@@ -54,7 +55,7 @@
 
               <!-- Card image -->
               <div>
-               <h5 class="mb-0 font-weight-bold">Edit Account</h5>
+               <h5 class="mb-0 font-weight-bold" style="margin-left: 1.5rem; margin-top: .7rem ;">Edit Account</h5>
               </div>
               <!-- Card image -->
 
