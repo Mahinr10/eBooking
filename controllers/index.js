@@ -19,7 +19,7 @@ const upload = multer({
 
 router.get('/index', (req, res)=>{
     if(req.session.active_id){
-         post_db.get_all_post().then((post_list)=>{
+         post_db.get_all_post(req.session.active_id).then((post_list)=>{
                // res.send(post_list);
             user_db.get_user_info(req.session.active_id).then((ui)=>{
                 console.log(post_list);
@@ -74,7 +74,10 @@ router.post('/post', (req, res)=>{
     if(validation_okay){
         console.log(obj);
         console.log('object printed');
-        post_db.make_post(obj);
+        post_db.make_post(obj).then((msg)=>{
+            console.log(msg);
+        })
+        res.redirect('/index');
     }
 })
 
