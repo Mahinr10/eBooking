@@ -1,7 +1,10 @@
 const express = require('express');
 const user_db = require('../models/user_db');
 const post_db = require('../models/post_db');
+const interest_db = require('../models/interest_db');
 const multer = require('multer');
+const formidable = require('formidable');
+const fs = require('fs');
 
 var router = express.Router();
 
@@ -9,7 +12,7 @@ const storage = multer.diskStorage({
     destination: './public/Images/Post',
     filename: function(req, file, callback){
         var current_time = Date.now();
-        callback(null, `$current_time.jpg`);
+        callback(null, `${current_time}.jpg`);
     }
 })
 
@@ -36,49 +39,55 @@ router.get('/index', (req, res)=>{
 })
 
 router.post('/post', (req, res)=>{
-    console.log(req.body);
-    console.log(req.body.post_text);
-    obj = {
-        text: req.body.post_text,
-        start_time: req.body.start_date + ' ' + req.body.start_time,
-        end_time: req.body.end_date + ' ' + req.body.end_time,
-        amount: req.body.amount,
-        Person_id: req.session.active_id
-    }
-    let validation_okay = true;
-    if(req.body.post_text == ''){
-        res.end();
-        validation_okay = false;
-    }
-    
-    if(req.body.start_date == ''){
-        res.end();
-        validation_okay = false;
-    }
-    if(req.body.start_time == ''){
-        res.end();
-        validation_okay = false;
-    }
-    if(req.body.end_date == ''){
-        res.end();
-        validation_okay = false;
-    }
-    if(req.body.end_time == ''){
-        res.end();
-        validation_okay = false;
-    }
-    if(req.body.amount == ''){
-        res.end();
-        validation_okay = false;
-    }
-    if(validation_okay){
-        console.log(obj);
-        console.log('object printed');
-        post_db.make_post(obj).then((msg)=>{
-            console.log(msg);
+    let form = new formidable.IncomingForm();
+    form.parse(req, (err, fields, files)=>{
+        
+        console.log(fields);
+        let obj = {
+            text:fields.post_text,
+            amount:fields.amount,
+            Person_id:req.session.active_id,
+            start_time:fields.start_date + ' ' + fields.start_time,
+            end_time:fields.end_date + ' ' + fields.end_time
+        }
+        post_db.make_post(obj)
+        .then((ret)=>{
+            let oldPath = files.post_pic.path;
+            let newPath = "public/images/Post/" + ret.Post_id +".jpg"; 
+            let rawData = fs.readFileSync(oldPath);
+            fs.writeFile(newPath, rawData, (err)=>{
+                if(err){
+                    console.log(err);
+                }
+                res.redirect('/index');
+                
+            })
         })
+        .catch(msg => console.log(msg));
+    })
+    
+})
+
+router.post('/interest', (req, res)=>{
+    console.log(req.body);
+    const {post_id} = req.body;
+    interest_db.make_interest(req.session.active_id, post_id)
+    .then(msg =>{
+        console.log(msg);
         res.redirect('/index');
-    }
+    })
+    .catch(msg=>console.log(msg))
+})
+
+router.post('/uninterest', (req, res)=>{
+    console.log(req.body);
+    const {post_id} = req.body;
+    interest_db.loose_interest(req.session.active_id, post_id)
+    .then(msg =>{
+        console.log(msg);
+        res.redirect('/index');
+    })
+    .catch(msg=>console.log(msg))
 })
 
 module.exports = router;
