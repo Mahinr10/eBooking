@@ -1,0 +1,96 @@
+<%- include('./partials/navbar.ejs') %>
+
+    <div class="container-fluid gedf-wrapper">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <img src="static/Images/profile_pic/<%=user.Person_id%>.jpg" high="90" width="90"
+                            alt="User Photo" class="rounded-circle" />
+                        <h5 style="margin-top: .75rem ;">
+                            <%=user.Name%>
+                        </h5>
+
+
+                    </div>
+
+                    <!--
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div class="h6 text-muted">Followers</div>
+                            <div class="h5">5</div>
+
+                        </li>
+                        <li class="list-group-item">
+                            <div class="h6 text-muted">Following</div>
+                            <div class="h5">10</div>
+                        </li>
+                    </ul>
+                -->
+                </div>
+            </div>
+            <div class="col-md-6 gedf-main">
+
+                <!--- \\\\\\\Post-->
+
+
+                <!--- \\\\\\\Post-->
+                <% data.forEach(function(datum){ %>
+                    <div class="card">
+                        <div class="card-body">
+                            <h6><strong>Buyer Name:</strong>
+                                <%=datum.BuyerName%>
+                            </h6>
+                            <h6><strong>Buyer Email:</strong>
+                                <%=datum.BuyerEmail%>
+                            </h6>
+                            <h6><strong>Buyer Phone:</strong>
+                                <%=datum.BuyerPhone%>
+                            </h6>
+                            <h6><strong>Seller Name:</strong>
+                                <%=datum.SellerName%>
+                            </h6>
+                            <h6><strong>Seller Email:</strong>
+                                <%=datum.SellerEmail%>
+                            </h6>
+                            <h6><strong>Seller Phone:</strong>
+                                <%=datum.SellerPhone%>
+                            </h6>
+                            <h6><strong>Staring:</strong></h6>
+                            <h6><strong>Seller Phone:</strong></h6>
+                            <p class="card-text" style="margin-top: .5rem">
+                                <%=datum.text_body%>
+                            </p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><strong>Start Time: <i class="fa fa-calendar"></i></strong>
+                                    <%=datum.start_time.slice(0, 10)%> <i class="fa fa-clock-o"></i>
+                                        <%=datum.start_time.slice(11, 19)%>
+                                </li>
+                                <li class="list-group-item"><strong>End Time: <i class="fa fa-calendar"></i></strong>
+                                    <%=datum.end_time.slice(0, 10)%> <i class="fa fa-clock-o"></i>
+                                        <%=datum.end_time.slice(11, 19)%>
+                                </li>
+                                <li class="list-group-item"><strong>Amount: </strong>
+                                    <%=datum.Amount%> tk
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body" style="margin-top: -1.5rem;">
+
+
+
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+
+
+                    <%}) %>
+
+
+            </div>
+
+        </div>
+        </body>
+
+        </html>

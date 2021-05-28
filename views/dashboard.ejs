@@ -1,25 +1,113 @@
-<%- include('./partials/header.ejs') %>
 <%- include('./partials/navbar.ejs') %>
 
+    <div class="container-fluid gedf-wrapper">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <img src="static/Images/profile_pic/<%=user.Person_id%>.jpg" high="90" width="90"
+                            alt="User Photo" class="rounded-circle" />
+                        <h5 style="margin-top: .75rem ;">
+                            <%=user.Name%>
+                        </h5>
 
-        <div style="border: 1px; border-radius: 10px; background-color: burlywood; margin: 20px; padding:20px">
-            <form method = "POST", action="/user_post", enctype="multipart/form-data">
-                <textarea rows="5", cols="63">write something </textarea>
-                <br><br>
-                <label> starting time</label>
-                <input type="date"><input type="time">
-                <br><br>
-                <label> ending time</label>
-                <input type="date"><input type="time">
-                <br><br>
-                <label>Amount</label>
-                <input type="number">
-                <br><br>
-                <input type="file" multiple="multiple">
-                <br><br>
-                <input type="submit" value="Post">
 
-            </form>
+                    </div>
+
+                    <!--
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div class="h6 text-muted">Followers</div>
+                            <div class="h5">5</div>
+
+                        </li>
+                        <li class="list-group-item">
+                            <div class="h6 text-muted">Following</div>
+                            <div class="h5">10</div>
+                        </li>
+                    </ul>
+                -->
+                </div>
+            </div>
+            <div class="col-md-6 gedf-main">
+
+                <!--- \\\\\\\Post-->
+
+
+                <!--- \\\\\\\Post-->
+                <% data.forEach(function(datum){ %>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content">
+                                <img class="rounded-circle" width="40"
+                                    src="static/Images/profile_pic/<%=datum.other_user%>.jpg" alt="None">
+                                <p> ㅤ </p>
+                                <h5 class="card-title" style="margin-top: .5rem">
+                                    <%= datum.Name %>
+                                </h5>
+                            </div>
+                            <h6><strong>Email:</strong>
+                                <%= datum.Email%>
+                            </h6>
+                            <h6><strong>Phone:</strong>
+                                <%=datum.Phone%>
+                            </h6>
+                        </div>
+                        <div class="card-body" style="margin-top: -1.5rem;">
+                            <button style="font-size:smaller;" type="button" class="btn btn-secondary"
+                                data-toggle="modal" data-target="#Modal_<%=datum.Post_id%>">
+                                Details
+                            </button>
+                            <form method="POST" action="/rent" style="float: left; margin-right: 3px;">
+
+                                <input type="hidden" value="<%=datum.other_user%>" name="buyer_id">
+                                <input type="hidden" value="<%=datum.self_user%>" name="seller_id">
+                                <button style="font-size:smaller;" type="submit" class="btn btn-success" name="post_id"
+                                    value="<%=datum.Post_id%>">Accept</button>
+                            </form>
+
+
+
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+
+                    <!--modal start-->
+                    <div class="modal fade" id="Modal_<%=datum.Post_id%>" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="Modal_<%=datum.Post_id%>Label">
+                                        <i class="fa fa-calendar"></i>
+                                        <%=datum.post_time.slice(0, 10)%>
+                                            <i class="fa fa-clock-o" style="margin-left: .5rem;"></i>
+                                            <%=datum.post_time.slice(11, 19)%>
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>
+                                        <%=datum.text_body%>
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--modal end-->
+
+                    <%}) %>
+
+
+            </div>
+
         </div>
-    </body>
-</html>
+        </body>
+
+        </html>

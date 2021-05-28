@@ -8,13 +8,7 @@ var connection = mysql.createConnection({
 });
 
 function get_all_post(Person_id){
-    Query = `SELECT t1.Post_id, t1.Person_id, t1.Amount, t1.text_body, t1.start_time, t1.end_time, t1.post_time, t2.Person_id as IsActive from 
-    (SELECT * from posts WHERE Person_id != ${Person_id}) t1
-    LEFT JOIN 
-    (SELECT * from interest WHERE Person_id = ${Person_id}) t2
-    on
-    t1.Post_id = t2.Post_id
-    order by t1.post_time desc`
+    Query = `SELECT tt1.Post_id, tt1.Person_id, tt1.Amount, tt1.text_body, tt1.start_time, tt1.end_time, tt1.post_time, tt1.IsActive, users.Name, users.Phone, users.Email from (SELECT t1.Post_id, t1.Person_id, t1.Amount, t1.text_body, t1.start_time, t1.end_time, t1.post_time, t2.Person_id as IsActive from (SELECT * from posts WHERE Person_id != ${Person_id}) t1 LEFT JOIN (SELECT * from interest WHERE Person_id = ${Person_id}) t2 on t1.Post_id = t2.Post_id order by t1.post_time desc ) tt1 left join users on users.Person_id = tt1.Person_id order by tt1.post_time desc`
     console.log(Query)
     return new Promise((resolve, reject)=>{
         connection.query(Query, (err, rows, fields)=>{
@@ -47,9 +41,7 @@ function make_post(obj){
 
 }
 
-function getPostInterest(user_id){
 
-}
 
 module.exports.get_all_post = get_all_post;
 module.exports.make_post = make_post;

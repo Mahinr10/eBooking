@@ -94,8 +94,22 @@ function update_user_info(user_id, user_info){
     })
 }
 
+function get_user_name(user_id){
+    let Query = `select Name from users where Person_id = ${user_id}`;
+    console.log(Query);
+    return new Promise((resolve, reject)=>{
+        connection.query(Query, (err, rows, fields)=>{
+            if(err){
+                reject('No name found');
+            }
+            resolve(JSON.parse(JSON.stringify(rows)));
+        })
+    })
+}
+
 module.exports.login_validation = login_validation;
 module.exports.register_eligibility = register_eligibility;
 module.exports.do_register = do_register;
 module.exports.get_user_info = get_user_info;
 module.exports.update_user_info = update_user_info;
+module.exports.get_user_name = get_user_name;

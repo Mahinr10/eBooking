@@ -90,4 +90,21 @@ router.post('/uninterest', (req, res)=>{
     .catch(msg=>console.log(msg))
 })
 
+router.get('/history', (req, res)=>{
+    if(req.session.active_id){
+        interest_db.get_history(req.session.active_id)
+        .then(data=>{
+            user_db.get_user_info(req.session.active_id).then((ui)=>{
+                console.log(data);
+                console.log(ui);
+                res.render('history', {data:data, user:ui[0]});
+            })
+        })
+    }
+    else{
+        res.redirect('/login');
+    }
+    
+})
+
 module.exports = router;

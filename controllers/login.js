@@ -3,7 +3,7 @@ var router = express.Router();
 var user_db = require('../models/user_db');
 
 router.get('/login', (req, res)=>{
-    req.session.active_id = 6;
+  //  req.session.active_id = 5;
     console.log(`session_id: ${req.session.active_id}`);
     if(req.session.active_id){
         res.redirect('/index');

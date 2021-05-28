@@ -1,21 +1,33 @@
 const express = require('express');
-const user_db = require('../models/post_db');
-const multer = require('multer');
-
+const interest_db = require('../models/interest_db');
+const user_db = require('../models/user_db');
 const route = express.Router();
 
-const storage = multer.diskStorage({
-    destination: './public/Images/post_pic',
-    filename: function(req, file, cb){
-        cb(null, not_sure)
-    }
-})
 
 route.get('/dashboard', (req, res)=>{
-    var data = undefined;
-    res.render('dashboard', {data:data});
+    if(req.session.active_id){
+        interest_db.get_all_interest(req.session.active_id)
+        .then((data=>{
+            user_db.get_user_info(req.session.active_id).then((ui)=>{
+            // console.log(post_list);
+            // console.log(ui);
+                res.render('dashboard', {data:data, user:ui[0]});
+            })
+            
+        }))
+    }
+    else{
+        res.redirect('/login');
+    }
+    
 })
 
-route.post('/post', )
+route.post('/rent', (req, res)=>{
+    console.log(req.body);
+    interest_db.make_invoice(req.body)
+    .then(msg=>console.log(msg))
+    .catch(msg=>console.log(msg))
+    res.redirect('/dashboard');
+})
 
 module.exports = route;

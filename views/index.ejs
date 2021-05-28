@@ -13,6 +13,8 @@
 
 
                     </div>
+
+                    <!--
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
                             <div class="h6 text-muted">Followers</div>
@@ -24,6 +26,7 @@
                             <div class="h5">10</div>
                         </li>
                     </ul>
+                -->
                 </div>
             </div>
             <div class="col-md-6 gedf-main">
@@ -134,27 +137,63 @@
                             </p>
                         </div>
                         <div class="card-body" style="margin-top: -1.5rem;">
-
+                            <button style="font-size:smaller;" type="button" class="btn btn-secondary"
+                                data-toggle="modal" data-target="#Modal_<%=post.Post_id%>">
+                                Contact
+                            </button>
                             <% if(post.IsActive) {%>
-                                <form method="POST" action="/uninterest">
+                                <form method="POST" action="/uninterest" style="float: left; margin-right: 3px;">
                                     <button style="font-size:smaller;" type="submit" class="btn btn-danger"
                                         name="post_id" value="<%=post.Post_id%>">Uninterest</button>
                                 </form>
                                 <%} else {%>
-                                    <form method="POST" action="/interest">
+                                    <form method="POST" action="/interest" style="float: left; margin-right: 3px;">
                                         <button style="font-size:smaller;" type="submit" class="btn btn-info"
                                             name="post_id" value="<%=post.Post_id%>">Interest</button>
                                     </form>
                                     <%}%>
 
+
+
                         </div>
                     </div>
                     <br>
                     <br>
+
+                    <!--modal start-->
+                    <div class="modal fade" id="Modal_<%=post.Post_id%>" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="Modal_<%=post.Post_id%>Label">
+                                        <%=post.Name%>
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <h6><strong>Email:</strong>
+                                        <%=post.Email%>
+                                    </h6>
+                                    <h6><strong>Phone:</strong>
+                                        <%=post.Phone%>
+                                    </h6>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--modal end-->
+
                     <%}) %>
 
 
             </div>
+
         </div>
         </body>
 
